@@ -1,4 +1,4 @@
-# README for Script 8.0.
+# README for Script 8.0. (only need to run this one)
 
 ## 3CX, PBX, and VAPRO Report Generator
 
