@@ -2,8 +2,8 @@ import pandas as pd
 
 def combine_and_clean_csv(file1, file2, output_file):
     # Read CSV files, skipping specified rows
-    df1 = pd.read_csv(file1, skiprows=range(5), skipfooter=2, engine='python', header=None)
-    df2 = pd.read_csv(file2, skiprows=range(6), skipfooter=2, engine='python', header=None)
+    df1 = pd.read_csv(file1, skiprows=range(4), skipfooter=2, engine='python', header=None)
+    df2 = pd.read_csv(file2, skiprows=range(5), skipfooter=2, engine='python', header=None)
 
     # Combine the two dataframes
     combined_df = pd.concat([df1, df2], ignore_index=True)
