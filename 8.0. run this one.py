@@ -24,12 +24,12 @@ if not os.path.exists(file_path_3cx):
 
 # Check if 3cx.csv exists
 if os.path.exists(file_path_3cx):
-    # Check if the first row contains 'Call Time'
-    first_row = pd.read_csv(file_path_3cx, nrows=1)
+    # Check if the first column in the first row is 'Call Time'
+    first_row = pd.read_csv(file_path_3cx, nrows=1, header=None)
     
-    if 'Call Time' not in first_row.columns:
-        # If 'Call Time' is not in the first row, delete the first 4 rows and the last 2 rows
-        df_3cx_temp = pd.read_csv(file_path_3cx, skiprows=range(1, 5), header=None)
+    if first_row.iloc[0, 0] != 'Call Time':
+        # If the first column is not 'Call Time', delete the first 4 rows and the last 2 rows
+        df_3cx_temp = pd.read_csv(file_path_3cx, skiprows=range(0, 4), header=None)
         df_3cx_temp = df_3cx_temp.iloc[:-2]
         df_3cx_temp.to_csv(file_path_3cx, index=False, header=False)
         print("Deleted first 4 rows and last 2 rows in 3cx.csv")
