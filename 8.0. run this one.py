@@ -22,6 +22,18 @@ if not os.path.exists(file_path_3cx):
     subprocess.run(["python", "8.1. 3cx_combiner.py"])
     print("3cx_combiner.py script executed")
 
+# Check if 3cx.csv exists
+if os.path.exists(file_path_3cx):
+    # Check if the first row contains 'Call Time'
+    first_row = pd.read_csv(file_path_3cx, nrows=1)
+    
+    if 'Call Time' not in first_row.columns:
+        # If 'Call Time' is not in the first row, delete the first 4 rows and the last 2 rows
+        df_3cx_temp = pd.read_csv(file_path_3cx, skiprows=range(1, 5), header=None)
+        df_3cx_temp = df_3cx_temp.iloc[:-2]
+        df_3cx_temp.to_csv(file_path_3cx, index=False, header=False)
+        print("Deleted first 4 rows and last 2 rows in 3cx.csv")
+
 # Mapping for 3CX
 caller_id_mapping = {
     
