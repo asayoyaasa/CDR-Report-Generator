@@ -63,4 +63,4 @@ This Python script reads data from three CSV files (`x3cx.csv`, `xau.csv`, and `
 
 ---
 
-Feel free to reach out if you have any further questions or if additional customization is required!
+
